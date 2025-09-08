@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "module": "ESNext"
+  }
+}
