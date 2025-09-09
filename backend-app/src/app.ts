@@ -5,6 +5,7 @@ import { Express } from "express";
 import authRouter from "./routes/authRouter";
 import { verifyToken } from "./utils/jwtHelper";
 import { pinoHttpMiddleware } from "./utils/loggerHelper";
+import messageRouter from "./routes/messageRouter";
 
 const app: Express = express();
 
@@ -33,5 +34,7 @@ app.use(async (req, res, next) => {
 
   next();
 });
+
+app.use("/v1", messageRouter);
 
 export default app;

@@ -54,5 +54,13 @@ export async function login(req: Request, res: Response) {
     throw new Error("Invalid password");
   }
 
-  return res.status(200).json({ message: "Login successful" });
+  const token = await generateToken(email);
+
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict",
+  });
+
+  return res.status(200).json({ message: "Login successful", Token: token });
 }
